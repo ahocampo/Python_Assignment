@@ -70,7 +70,25 @@ def all_combos(letters = ['A', 'G', 'C', 'T'], k = 2):
 
         
     
-def create_all_size_combos(k_list = [1,2,3], gene = pd.Series(['ATTTGGATT', 'ATGTCTGTCTGTA'])):
+def create_all_size_combos(k_list = [1,2,3], gene = pd.Series(['ATTTGGATT', 'ATGTCTGTCTGTA']), letters = ['A', 'G', 'C', 'T']):
+    """Find all combinations for all possible sizes.
+
+    Parameters
+    ----------
+    k_list (list):
+        List of all possible sizes of sequences. The default is [1,2,3].
+    gene (series): 
+        Series with genetic sequence to analyze. The default
+        is pd.Series(['ATTTGGATT', 'ATGTCTGTCTGTA']).
+    letters (list): 
+        The default is ['A', 'G', 'C', 'T'].
+
+    Returns
+    -------
+    combos_df  (DataFrame):
+        Contains all combinations of letters for various size k.
+
+    """
     combos_df_list = []
     for i in range(0, len(k_list)):
         combos = all_combos(letters = letters, k = k_list[i])
@@ -234,4 +252,4 @@ def main_function_genes():
     print("Linquistic Complexity: ", varcomplexity)
     return dffinal, observedtable
 
-dffinal, observedtable = main_function_genes()
+# dffinal, observedtable = main_function_genes()
